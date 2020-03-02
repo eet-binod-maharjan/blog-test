@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 
 Route::get('/{name}', 'UserController@show')->name('user.show');
 Route::get('/books', 'BookController@index')->name('book.index');
@@ -18,3 +19,7 @@ Route::post('/books/{book}', 'BookController@update')->name('book.update');
 Route::delete('/books/{book}','BookController@destroy')->name('book.destroy');
 
 Route::resource('author', 'AuthorController');
+Route::post('/checkout/{book}', 'CheckoutBookController@store')->name('checkout.store');
+Route::post('/checkin/{book}', 'CheckinBookController@store')->name('checkout.store');
+
+
